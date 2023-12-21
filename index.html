@@ -10,8 +10,8 @@
         <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
         <style>
         #map {
-            width: 1280px;
-            height: 720px;
+            width: 1546px;
+            height: 804px;
         }
         </style>
         <title></title>
@@ -31,7 +31,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
-        }).fitBounds([[-70.82276127280142,-170.9571592109091],[89.89999999999998,168.50850000204804]]);
+        }).fitBounds([[-43.83160941729502,-178.00415075356725],[78.1106261849231,174.0052599760883]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -56,17 +56,26 @@
                                               {pane: 'pane_geogr_poyas_1'});
         bounds_group.addLayer(layer_geogr_poyas_1);
         map.addLayer(layer_geogr_poyas_1);
-        map.createPane('pane_landschaft_2');
-        map.getPane('pane_landschaft_2').style.zIndex = 402;
-        var img_landschaft_2 = 'data/landschaft_2.png';
-        var img_bounds_landschaft_2 = [[-26.29629181787631,-178.18224695060016],[76.90318267387129,175.46192510239098]];
-        var layer_landschaft_2 = new L.imageOverlay(img_landschaft_2,
-                                              img_bounds_landschaft_2,
-                                              {pane: 'pane_landschaft_2'});
-        bounds_group.addLayer(layer_landschaft_2);
-        map.addLayer(layer_landschaft_2);
+        map.createPane('pane_soil_modified_2');
+        map.getPane('pane_soil_modified_2').style.zIndex = 402;
+        var img_soil_modified_2 = 'data/soil_modified_2.png';
+        var img_bounds_soil_modified_2 = [[-22.00448605679782,-178.4865826989581],[76.84297320225181,175.82298481013007]];
+        var layer_soil_modified_2 = new L.imageOverlay(img_soil_modified_2,
+                                              img_bounds_soil_modified_2,
+                                              {pane: 'pane_soil_modified_2'});
+        bounds_group.addLayer(layer_soil_modified_2);
+        map.addLayer(layer_soil_modified_2);
+        map.createPane('pane_landschaft_georeferenced_3');
+        map.getPane('pane_landschaft_georeferenced_3').style.zIndex = 403;
+        var img_landschaft_georeferenced_3 = 'data/landschaft_georeferenced_3.png';
+        var img_bounds_landschaft_georeferenced_3 = [[-27.838589357580982,-176.68519818145512],[77.04216497385623,176.86182134304545]];
+        var layer_landschaft_georeferenced_3 = new L.imageOverlay(img_landschaft_georeferenced_3,
+                                              img_bounds_landschaft_georeferenced_3,
+                                              {pane: 'pane_landschaft_georeferenced_3'});
+        bounds_group.addLayer(layer_landschaft_georeferenced_3);
+        map.addLayer(layer_landschaft_georeferenced_3);
         var baseMaps = {};
-        L.control.layers(baseMaps,{"landschaft": layer_landschaft_2,"geogr_poyas": layer_geogr_poyas_1,"clim_poyas": layer_clim_poyas_0,},{collapsed:false, position:'topleft'}).addTo(map);
+        L.control.layers(baseMaps,{"landschaft_georeferenced": layer_landschaft_georeferenced_3,"soil_modified": layer_soil_modified_2,"geogr_poyas": layer_geogr_poyas_1,"clim_poyas": layer_clim_poyas_0,},{collapsed:false}).addTo(map);
         setBounds();
         L.ImageOverlay.include({
             getBounds: function () {
