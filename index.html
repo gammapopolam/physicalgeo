@@ -75,7 +75,7 @@
         bounds_group.addLayer(layer_landschaft_georeferenced_3);
         map.addLayer(layer_landschaft_georeferenced_3);
         var baseMaps = {};
-        L.control.layers(baseMaps,{"landschaft_georeferenced": layer_landschaft_georeferenced_3,"soil_modified": layer_soil_modified_2,"geogr_poyas": layer_geogr_poyas_1,"clim_poyas": layer_clim_poyas_0,},{collapsed:false}).addTo(map);
+        L.control.layers(baseMaps,{"landschaft_georeferenced": layer_landschaft_georeferenced_3,"soil_modified": layer_soil_modified_2,"geogr_poyas": layer_geogr_poyas_1,"clim_poyas": layer_clim_poyas_0,},{collapsed:false, position:'topleft'}).addTo(map);
         setBounds();
         L.ImageOverlay.include({
             getBounds: function () {
